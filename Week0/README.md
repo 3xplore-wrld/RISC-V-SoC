@@ -45,11 +45,15 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install iverilog -y
 ```
 
+![Icarus Verilog Version Check](images/iverilog.png)
+
+
 #### **2. GTKWave (Waveform Viewer)**
 
 ```bash
 sudo apt install gtkwave -y
 ```
+![GTKWave Version Check](images/Gtkwave.png)
 
 #### **3. Yosys (Synthesis Tool)**
 
@@ -65,6 +69,7 @@ make
 sudo make install
 cd ..
 ```
+![Yosys Version Check](images/yosys.png)
 
 #### **4. Magic (Layout Tool)**
 
@@ -79,6 +84,7 @@ make
 sudo make install
 cd ..
 ```
+![Magic Version Check](images/magic.png)
 
 #### **5. NGSpice (Analog Simulator)**
 
@@ -87,8 +93,21 @@ The easiest way is to install it from the default repository.
 ```bash
 sudo apt install ngspice -y
 ```
+![NGSpice Version Check](images/ngspice.png)
 
-#### **6. OpenLANE (Physical Design Flow)**
+#### **6. Check Dependencies**
+```bash
+git --version
+docker --version
+python3 --version
+python3 -m pip --version
+make --version
+python3 -m venv -h
+```
+
+![All Tool Versions Check](images/version_check.png)
+
+#### **7. OpenLANE (Physical Design Flow)**
 
 OpenLANE runs using Docker. The first step is to install Docker.
 
@@ -135,4 +154,3 @@ Finally, test the installation.
 make test
 ```
 This process will take a considerable amount of time as it pulls docker images and runs a test design flow.
-

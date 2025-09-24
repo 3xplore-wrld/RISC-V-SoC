@@ -112,22 +112,35 @@ python3 -m venv -h
 OpenLANE runs using Docker. The first step is to install Docker.
 
 ```bash
-# Install Docker prerequisites
-sudo apt install apt-transport-https ca-certificates curl software-properties-common -y
+# REmove previous docker versions to avoid conflicts
+sudo apt-get remove docker docker-engine docker.io containerd runc
+
+# Update your package index and install dependencies
+sudo apt-get update
+sudo apt-get install ca-certificates curl gnupg
 
 # Add Docker's official GPG key
-curl -fsSL [https://download.docker.com/linux/ubuntu/gpg](https://download.docker.com/linux/ubuntu/gpg) | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
 
-# Set up the stable repository
-echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] [https://download.docker.com/linux/ubuntu](https://download.docker.com/linux/ubuntu) $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+# Add the Docker repository to your Apt sources
+echo \
+  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-# Install Docker Engine
-sudo apt update
-sudo apt install docker-ce docker-ce-cli containerd.io -y
+# Update the package index with the new repository
+sudo apt-get update
 
-# Add your user to the 'docker' group to run commands without 'sudo'
-sudo groupadd docker
-sudo usermod -aG docker $USER
+# Install Docker Engine, CLI, and other components
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+# Add your user to the 'docker' group (replace 'praful' with your username)
+sudo usermod -aG docker praful
+
+# Log out and log back in, or run the following command to apply group changes
+newgrp docker
 ```
 **Important:** You need to log out and log back in, or restart your system, for the user group changes to take effect.
 ```bash

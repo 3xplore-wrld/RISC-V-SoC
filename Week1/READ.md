@@ -56,29 +56,23 @@ gtkwave tb_ternary_operator_mux.vcd
 ```
 ## Images for reference
 ## 📷 Simulation & Synthesis Outputs
+## 🧪 Gate-Level Simulation
+<img src="images_w1/GLS_gtk_tenary_operator.png" alt="GLS GTK Ternary Operator" width="800">
 
-### 1. Yosys Synthesis
-![Yosys Good Mux](images_w1/yosys_good_mux.png)
-![Yosys Ternary Operator Mux](images_w1/yosys_tenary_operator_mux.png)
+## 📜 Netlist View
+<img src="images_w1/good_mux_netlist.png" alt="Good Mux Netlist" width="800">
 
-### 2. Netlist View
-![Good Mux Netlist](images_w1/good_mux_netlist.png)
+## 📊 GTKWave Simulation
+<img src="images_w1/gtk_bad_mux.png" alt="GTKWave Bad Mux" width="800">
+<img src="images_w1/gtkwave_good_mux.png" alt="GTKWave Good Mux" width="800">
+<img src="images_w1/gtkwave_tenary_operator_mux.png" alt="GTKWave Ternary Operator Mux" width="800">
 
-### 3. GTKWave Simulation
-- Bad Mux:
-  ![GTKWave Bad Mux](images_w1/gtk_bad_mux.png)
+## ✍️ Code Editing
+<img src="images_w1/gvim_good_mux.png" alt="GVim Good Mux" width="800">
 
-- Good Mux:
-  ![GTKWave Good Mux](images_w1/gtkwave_good_mux.png)
-
-- Ternary Operator Mux:
-  ![GTKWave Ternary Operator Mux](images_w1/gtkwave_tenary_operator_mux.png)
-
-- Gate-Level Simulation (GLS):
-  ![GLS GTK Ternary Operator](images_w1/GLS_gtk_tenary_operator.png)
-
-### 4. Code Editing
-![GVim Good Mux](images_w1/gvim_good_mux.png)
+## ⚙️ Yosys Synthesis Results
+<img src="images_w1/yosys_good_mux.png" alt="Yosys Good Mux Synthesis" width="800">
+<img src="images_w1/yosys_ternary_operator_mux.png" alt="Yosys Ternary Operator Mux Synthesis" width="800">
 
 
 
